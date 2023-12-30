@@ -8,4 +8,6 @@ public class Constants {
 
 	public static final String API_V1_PREFIX = "/api/v1/user";
 
+	public static final String JEWEL_SCHEMA = "jewel";
+
 }
