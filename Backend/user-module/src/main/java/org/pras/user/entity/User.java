@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,6 +32,8 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
 	@SequenceGenerator(schema = Constants.JEWEL_SCHEMA, name = "user_seq", allocationSize = 1, initialValue = 1000)
 	private long userId;
+	@Column(name = "password_v")
+	private String password;
 	@Column(name = "first_name")
 	private String firstName;
 	@Column(name = "middle_name")
