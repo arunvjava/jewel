@@ -29,6 +29,8 @@ public class UserRoles {
 	private String userRole;
 	@Column(name = "role_weightage")
 	private int weightage;
+	@Column(name = "role_category")
+	private String roleCategory;
 
 	@ManyToMany(mappedBy = "userRoles")
 	private List<User> user;

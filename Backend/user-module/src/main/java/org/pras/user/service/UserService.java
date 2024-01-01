@@ -1,19 +1,17 @@
 package org.pras.user.service;
 
 import org.pras.user.dto.request.UserRequestDTO;
-import org.pras.user.entity.User;
-import org.pras.user.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.pras.user.dto.response.UserResponseDTO;
+import org.pras.user.exception.UserNotFoundException;
 
-@Service
-public class UserService {
+public interface UserService {
 
-	@Autowired
-	UserRepository userRepo;
+	public UserResponseDTO getUserByID(long userId) throws UserNotFoundException;
 
-	public void saveUser(UserRequestDTO user) {
+	public UserResponseDTO getUserByEmailID(String emaildID);
 
-	}
+	public UserResponseDTO getUserByName(String name);
+
+	public UserResponseDTO saveUser(UserRequestDTO user);
 
 }

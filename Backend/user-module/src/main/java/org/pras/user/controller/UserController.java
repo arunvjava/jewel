@@ -3,7 +3,7 @@ package org.pras.user.controller;
 import javax.validation.Valid;
 
 import org.pras.user.dto.request.UserRequestDTO;
-import org.pras.user.service.UserService;
+import org.pras.user.service.impl.UserServiceImpl;
 import org.pras.user.utils.Constants;
 import org.pras.user.utils.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
 	@Autowired
-	private UserService userService;
+	private UserServiceImpl userService;
 
 	@GetMapping(path = "/{id}")
 	public void getUserBasedOnId(@PathVariable long id) {
-
+		userService.getUserByID(id);
 	}
 
 	@PostMapping
@@ -34,4 +34,5 @@ public class UserController {
 		userService.saveUser(user);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
+
 }

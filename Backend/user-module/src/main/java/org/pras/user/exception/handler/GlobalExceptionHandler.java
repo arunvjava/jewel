@@ -24,4 +24,16 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<Response<String>> handleApplicationException(Exception exception) {
+		Response<String> response = Response.<String>builder().message(exception.getMessage()).statusCode(500).build();
+		return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
+	@ExceptionHandler(RuntimeException.class)
+	public ResponseEntity<Response<String>> handleApplicationException(RuntimeException runtimeException) {
+		Response<String> response = Response.<String>builder().message(runtimeException.getMessage()).statusCode(500)
+				.build();
+		return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 }

@@ -1,4 +1,4 @@
-package org.pras.user.dto.request;
+package org.pras.user.dto.response;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.pras.user.entity.UserRoles;
 import lombok.Data;
 
 @Data
-public class UserRequestDTO {
+public class UserResponseDTO {
 
 	private long userId;
 	private String firstName;

@@ -44,7 +44,8 @@ public class User {
 	private String primaryContactNumber;
 	@Column(name = "secondary_contact_number")
 	private String secondaryContactNumber;
-
+	@Column(name = "email_id")
+	private String emailID;
 	@ManyToMany
 	@JoinTable(schema = Constants.JEWEL_SCHEMA, name = "mp_user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private List<UserRoles> userRoles;
