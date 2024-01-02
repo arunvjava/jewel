@@ -30,9 +30,18 @@ public class UserController {
 
 	@PostMapping
 	public ResponseEntity<Response<String>> saveUser(@RequestBody @Valid UserRequestDTO user) {
-		Response<String> response = Response.<String>builder().message("Success").build();
+		Response<String> response = Response.<String>builder().statusCode(HttpStatus.CREATED.value()).message("Success")
+				.build();
 		userService.saveUser(user);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
+	@PostMapping(path = "/login")
+	public ResponseEntity<Response<String>> validateUser(@RequestBody @Valid UserRequestDTO user) {
+	
+		userService.saveUser(user);
+		Response<String> response = Response.<String>builder().statusCode(HttpStatus.CREATED.value()).message("Success")
+				.build();
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
 }

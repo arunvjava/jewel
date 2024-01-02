@@ -12,17 +12,21 @@ import org.pras.user.mapper.UserRequestMapperImpl;
 import org.pras.user.repository.UserRepository;
 import org.pras.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	UserRepository userRepo;
+	private UserRepository userRepo;
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	private UserRequestMapper userRequestMapper = new UserRequestMapperImpl();
 
-	/*
+	/**
 	 * Saves the user in the database
 	 */
 	public UserResponseDTO saveUser(UserRequestDTO userRequestDTO) {
@@ -32,6 +36,7 @@ public class UserServiceImpl implements UserService {
 					String.format("User already exist with same email id :%s", userRequestDTO.getEmailID()));
 		}
 
+		userRequestDTO.setPassword(passwordEncoder.encode(userRequestDTO.getPassword()));
 		User user = userRepo.save(userRequestMapper.userReqDTOToUser(userRequestDTO));
 
 		return userRequestMapper.userToUserResponseDTO(user);
@@ -55,12 +60,15 @@ public class UserServiceImpl implements UserService {
 	public UserResponseDTO getUserByEmailID(String emaildID) {
 		User user = userRepo.findByEmailID(emaildID);
 		if (user == null) {
-			throw new UserNotFoundException(String.format("User not found for the provide email :%s", emaildID));
+			throw new UserNotFoundException(String.format("User not found for the provided email :%s", emaildID));
 		}
 
 		return userRequestMapper.userToUserResponseDTO(user);
 	}
 
+	/**
+	 * Get user by firstname
+	 */
 	public UserResponseDTO getUserByName(String name) {
 		User user = userRepo.findByFirstName(name);
 		if (user == null) {
