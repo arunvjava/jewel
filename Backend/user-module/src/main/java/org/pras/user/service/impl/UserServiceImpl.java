@@ -2,9 +2,9 @@ package org.pras.user.service.impl;
 
 import java.util.Optional;
 
+import org.pras.entity.user.User;
 import org.pras.user.dto.request.UserRequestDTO;
 import org.pras.user.dto.response.UserResponseDTO;
-import org.pras.user.entity.User;
 import org.pras.user.exception.AlreadyExistException;
 import org.pras.user.exception.UserNotFoundException;
 import org.pras.user.mapper.UserRequestMapper;

@@ -3,8 +3,8 @@ package org.pras.user.dto.request;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.pras.user.entity.Address;
-import org.pras.user.entity.UserRoles;
+import org.pras.entity.user.Address;
+import org.pras.entity.user.UserRoles;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
 package org.pras.user.security;
 
-import org.pras.user.entity.User;
+import org.pras.entity.user.User;
 import org.pras.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
