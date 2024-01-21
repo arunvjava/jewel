@@ -24,7 +24,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "addrs_dtls", schema = Constants.SCHEMA_JEWEL)
-public class Address implements Serializable {
+public class AddressTemp implements Serializable {
 
 	/**
 	 * 

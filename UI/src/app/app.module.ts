@@ -10,6 +10,7 @@ import { HomeComponent } from './components/views/home/home.component';
 import { TopNavbarComponent } from './components/shared/top-navbar/top-navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { TopMenubarComponent } from './components/shared/top-menubar/top-menubar.component';
+import { ForgetPwdComponent } from './components/views/forget-pwd/forget-pwd.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TopMenubarComponent } from './components/shared/top-menubar/top-menubar
     HomeComponent,
     TopNavbarComponent,
     FooterComponent,
-    TopMenubarComponent
+    TopMenubarComponent,
+    ForgetPwdComponent
   ],
   imports: [
     BrowserModule,
