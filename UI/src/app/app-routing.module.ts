@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegistrationComponent},
   { path: 'forget-pwd', component: ForgetPwdComponent},
+  { path: 'test-pwd', component: ForgetPwdComponent},
 ];
 
 @NgModule({
